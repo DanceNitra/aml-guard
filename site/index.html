@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AML Guard — Compliance pre SK/CZ firmy</title>
+  <meta name="description" content="AML compliance software pre realitné kancelárie, účtovné firmy, advokátov a predajcov áut v SK a CZ.">
+  <style>
+    :root {
+      --bg: #0a0e1a;
+      --bg-card: #111827;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --green: #22c55e;
+      --yellow: #eab308;
+      --red: #ef4444;
+      --border: #1e293b;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+
+    /* Header */
+    .header {
+      background: rgba(10, 14, 26, 0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo { font-size: 1.3rem; font-weight: 700; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { color: var(--text-muted); font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.5rem;
+      border-radius: 8px; font-weight: 600; font-size: 0.9rem; cursor: pointer;
+      transition: all 0.2s; border: none;
+    }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Hero */
+    .hero {
+      text-align: center; padding: 5rem 1.5rem 3rem;
+      max-width: 800px; margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-block; background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.3); color: var(--accent);
+      padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem; font-weight: 800; line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 640px) { .hero h1 { font-size: 3.2rem; } }
+    .hero h1 span { background: linear-gradient(135deg, var(--accent), #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 640px; margin: 0 auto 2rem; }
+
+    .hero-stats {
+      display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin: 2rem 0;
+    }
+    .hero-stats strong { display: block; font-size: 2rem; }
+    .hero-stats span { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* Features */
+    .features {
+      max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem;
+    }
+    .features h2 { text-align: center; font-size: 2rem; margin-bottom: 3rem; }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+    }
+    .feature-card .icon { font-size: 2rem; margin-bottom: 0.8rem; }
+    .feature-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .feature-card p { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* Who needs it */
+    .who-section {
+      max-width: 800px; margin: 0 auto; padding: 3rem 1.5rem;
+    }
+    .who-section h2 { text-align: center; font-size: 2rem; margin-bottom: 2rem; }
+    .who-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .who-item {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.2rem; text-align: center;
+    }
+    .who-item .emoji { font-size: 2rem; }
+    .who-item h4 { margin: 0.5rem 0 0.3rem; }
+    .who-item p { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* Pricing */
+    .pricing {
+      max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem;
+    }
+    .pricing h2 { text-align: center; font-size: 2rem; margin-bottom: 2rem; }
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .pricing-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem; text-align: center;
+    }
+    .pricing-card.recommended {
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+      position: relative;
+    }
+    .pricing-card .badge {
+      background: var(--accent); color: white; padding: 0.2rem 1rem;
+      border-radius: 20px; font-size: 0.8rem; position: absolute;
+      top: -12px; left: 50%; transform: translateX(-50%);
+    }
+    .pricing-card .price { font-size: 2.5rem; font-weight: 800; margin: 1rem 0; }
+    .pricing-card .price small { font-size: 1rem; font-weight: 400; color: var(--text-muted); }
+    .pricing-card ul { list-style: none; margin: 1rem 0; }
+    .pricing-card li { padding: 0.3rem 0; font-size: 0.9rem; color: var(--text-muted); }
+    .pricing-card li.yes { color: var(--green); }
+
+    /* Footer */
+    .footer {
+      text-align: center; padding: 3rem 1.5rem;
+      border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem;
+    }
+
+    /* Legal notice banner */
+    .legal-banner {
+      background: rgba(59, 130, 246, 0.05);
+      border: 1px solid rgba(59, 130, 246, 0.15);
+      padding: 0.6rem 1.5rem; text-align: center;
+      font-size: 0.85rem; color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero-stats { gap: 1.5rem; }
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo"><span>🛡️</span> AML <span>Guard</span></div>
+    <nav class="nav-links">
+      <a href="#features">Funkcie</a>
+      <a href="#pricing">Cenník</a>
+      <a href="app/login.html" class="btn btn-primary">Prihlásiť sa</a>
+    </nav>
+  </div>
+</header>
+
+<div class="legal-banner">
+  🇪🇺 V súlade so zákonom č. 54/2019 Z.z. (SK) a zákonom č. 253/2008 Sb. (CZ) o AML
+</div>
+
+<section class="hero">
+  <div class="hero-badge">🔒 AML Compliance pre SK/CZ</div>
+  <h1>Vaša <span>AML politika</span> za 15 minút, nie za 2 týždne</h1>
+  <p>
+    Automatizovaný compliance systém pre realitné kancelárie, účtovné firmy, 
+    advokátov a predajcov áut. Generujte dokumenty, spravujte KYC, 
+    evidujte školenia — všetko na jednom mieste.
+  </p>
+  <div class="hero-stats">
+    <div><strong>15 min</strong><span>tvorba AML politiky</span></div>
+    <div><strong>90K+</strong><span>subjektov v SK/CZ</span></div>
+    <div><strong>€1M</strong><span>maximálna pokuta</span></div>
+  </div>
+  <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    <a href="app/login.html?signup=true" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">🚀 Začať zadarmo</a>
+    <a href="#features" class="btn btn-outline" style="padding: 1rem 2rem;">Zistiť viac</a>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <h2>Čo všetko AML Guard pokrýva</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="icon">📋</div>
+      <h3>Generátor AML politiky</h3>
+      <p>Vyplňte dotazník a my vygenerujeme kompletnú AML politiku vrátane risk assessmentu, CDD postupov a STR procedúr.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🪪</div>
+      <h3>KYC / CDD Workflow</h3>
+      <p>Nahrajte občiansky preukaz, systém overí totožnosť a uchováva kompletný audit trail pre prípad kontroly.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🏛️</div>
+      <h3>Register UBO</h3>
+      <p>Evidencia konečných užívateľov výhod s kontrolou 25% vlastníctva a prepojením na CDD záznamy.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🚨</div>
+      <h3>Hlásenie podozrivých obchodov</h3>
+      <p>Sprievodca identifikáciou podozrivých transakcií a generovanie hlásenia na Finančnú políciu / Finančný úrad.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🎓</div>
+      <h3>Povinné školenia</h3>
+      <p>Ročný AML tréning pre zamestnancov s kvízom a certifikátom. Automatické pripomienky pred vypršaním.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">📊</div>
+      <h3>Compliance Dashboard</h3>
+      <p>Prehľad čo je v poriadku a čo chýba. Kalendár termínov a automatické notifikácie.</p>
+    </div>
+  </div>
+</section>
+
+<section class="who-section">
+  <h2>Pre koho je AML Guard určený</h2>
+  <div class="who-grid">
+    <div class="who-item">
+      <div class="emoji">🏠</div>
+      <h4>Realitné kancelárie</h4>
+      <p>~3,500 v SK, ~15,000 v CZ. Povinnosť KYC a hlásenia obchodov nad €10K cash.</p>
+    </div>
+    <div class="who-item">
+      <div class="emoji">📊</div>
+      <h4>Účtovné firmy</h4>
+      <p>~8,200 v SK, ~22,000 v CZ. Povinnosť AML politiky a školenia.</p>
+    </div>
+    <div class="who-item">
+      <div class="emoji">⚖️</div>
+      <h4>Advokáti a notári</h4>
+      <p>~7,250 v SK, ~13,700 v CZ. Povinnosť identifikácie klienta a UBO.</p>
+    </div>
+    <div class="who-item">
+      <div class="emoji">🚗</div>
+      <h4>Predajcovia áut</h4>
+      <p>~5,000 v SK, ~15,000 v CZ. Hotovostné obchody nad €10K = AML povinnosť.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <h2>Jednoduchý cenník</h2>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <h3>Solo</h3>
+      <div class="price">€29<small>/mesiac</small></div>
+      <ul>
+        <li class="yes">✅ 1 používateľ</li>
+        <li class="yes">✅ 10 KYC kontrol/mesiac</li>
+        <li class="yes">✅ Generátor AML politiky</li>
+        <li class="yes">✅ Register UBO</li>
+        <li class="yes">✅ STR reporting</li>
+        <li class="yes">✅ Základné školenie</li>
+      </ul>
+      <a href="app/login.html?signup=true" class="btn btn-outline" style="width: 100%; justify-content: center;">Začať</a>
+    </div>
+    <div class="pricing-card recommended">
+      <span class="badge">Odporúčame</span>
+      <h3>Small Firm</h3>
+      <div class="price">€79<small>/mesiac</small></div>
+      <ul>
+        <li class="yes">✅ Až 5 používateľov</li>
+        <li class="yes">✅ 50 KYC kontrol/mesiac</li>
+        <li class="yes">✅ Všetky dokumenty</li>
+        <li class="yes">✅ Register UBO</li>
+        <li class="yes">✅ STR + API</li>
+        <li class="yes">✅ Ročné školenie v cene</li>
+        <li class="yes">✅ Compliance dashboard</li>
+      </ul>
+      <a href="app/login.html?signup=true" class="btn btn-primary" style="width: 100%; justify-content: center;">Začať</a>
+    </div>
+    <div class="pricing-card">
+      <h3>Medium</h3>
+      <div class="price">€199<small>/mesiac</small></div>
+      <ul>
+        <li class="yes">✅ Až 20 používateľov</li>
+        <li class="yes">✅ Neobmedzené KYC</li>
+        <li class="yes">✅ Všetky dokumenty</li>
+        <li class="yes">✅ API prístup</li>
+        <li class="yes">✅ Prioritná podpora</li>
+        <li class="yes">✅ Vlastné template</li>
+        <li class="yes">✅ Audit log</li>
+      </ul>
+      <a href="app/index.html?signup=true" class="btn btn-outline" style="width: 100%; justify-content: center;">Kontaktujte nás</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p><strong>🛡️ AML Guard</strong> by DanceNitra &bull; Súčasť CSRD Comply rodiny</p>
+  <p style="margin-top: 0.3rem;">Založené na EU AML Directives 5 a 6 &bull; Zákon č. 54/2019 Z.z. &bull; Zákon č. 253/2008 Sb.</p>
+  <p style="margin-top: 0.3rem;"><a href="https://github.com/DanceNitra/aml-guard">GitHub</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AML Guard — App</title>
+  <link rel="stylesheet" href="../css/app.css">
+  <style>
+    /* ── AUTH STATE ── */
+    .auth-checking, .auth-failed { display: flex; min-height: 100vh; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; }
+    .auth-checking .spinner { width: 40px; height: 40px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .app-shell { display: none; }
+  </style>
+</head>
+<body>
+
+<!-- AUTH CHECKING -->
+<div id="auth-checking" class="auth-checking">
+  <div class="spinner"></div>
+  <p style="color: var(--text-muted);">Načítavam...</p>
+</div>
+
+<!-- AUTH FAILED / LOGIN REQUIRED -->
+<div id="auth-failed" class="auth-failed" style="display:none;">
+  <div style="font-size: 3rem;">🔒</div>
+  <h2>Prihlásenie vyžadované</h2>
+  <p style="color: var(--text-muted);">Pre prístup do aplikácie sa musíte prihlásiť.</p>
+  <a href="login.html" class="btn btn-primary">Prihlásiť sa</a>
+  <a href="../index.html" class="btn btn-secondary" style="margin-top: 0.5rem;">Späť na hlavnú stránku</a>
+</div>
+
+<!-- APP SHELL -->
+<div id="app-shell" class="app-shell">
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo"><span>🛡️</span> AML <span>Guard</span></div>
+      <nav class="sidebar-nav" id="sidebar-nav">
+        <a href="#dashboard" class="active" data-page="dashboard"><span class="nav-icon">📊</span> Dashboard</a>
+        
+        <div class="nav-section">Dokumenty</div>
+        <a href="#policy" data-page="policy"><span class="nav-icon">📋</span> AML Politika</a>
+        
+        <div class="nav-section">Previerky</div>
+        <a href="#cdd" data-page="cdd"><span class="nav-icon">🪪</span> KYC / CDD</a>
+        <a href="#ubo" data-page="ubo"><span class="nav-icon">🏛️</span> Register UBO</a>
+        
+        <div class="nav-section">Reportovanie</div>
+        <a href="#str" data-page="str"><span class="nav-icon">🚨</span> Podozrivé obchody</a>
+        
+        <div class="nav-section">Compliance</div>
+        <a href="#training" data-page="training"><span class="nav-icon">🎓</span> Školenia</a>
+        
+        <div class="nav-section">Nastavenia</div>
+        <a href="#settings" data-page="settings"><span class="nav-icon">⚙️</span> Nastavenia</a>
+        <a href="#" id="logout-btn" style="color: var(--red);"><span class="nav-icon">🚪</span> Odhlásiť</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="main-content">
+      <!-- Top bar -->
+      <div class="top-bar" id="top-bar">
+        <h1 id="page-title">Dashboard</h1>
+        <div class="user-info">
+          <span id="user-display-name">Používateľ</span>
+          <span style="color: var(--text-muted);">|</span>
+          <span id="company-display" style="font-size: 0.85rem;"></span>
+        </div>
+      </div>
+
+      <!-- Page content -->
+      <div id="page-content">
+        <!-- Loaded dynamically -->
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="../js/supabase-mock.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>
