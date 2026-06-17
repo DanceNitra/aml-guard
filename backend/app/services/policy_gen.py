@@ -65,29 +65,184 @@ class PolicyTemplate:
         ],
     }
     
+    SK_SECTIONS["accounting"] = [
+        ("Úvodné ustanovenia", [
+            "Táto AML politika je základným dokumentom spoločnosti {company_name} v oblasti AML/FT.",
+            "Spoločnosť vykonáva činnosť účtovníctva a daňového poradenstva.",
+            "Politika je vydaná v súlade so zákonom č. 297/2008 Z.z.",
+        ]),
+        ("Zodpovedná osoba", ["Zodpovednou osobou je: {co_name}. Kontakt: {co_contact}"]),
+        ("Identifikácia a preverenie klienta", [
+            "Každý klient musí byť identifikovaný pred prevzatím objednávky na vedenie účtovníctva.",
+            "Identifikácia zahŕňa overenie totožnosti a zistenie účelu obchodného vzťahu.",
+        ]),
+        ("Konečný užívateľ výhod", ["Spoločnosť identifikuje UBO u všetkých právnických osôb."]),
+        ("Politicky exponované osoby", ["Spoločnosť overuje, či klient nie je PEP."]),
+        ("Hodnotenie rizika klienta", ["Každý klient je hodnotený podľa rizikového profilu."]),
+        ("Hlásenie podozrivých obchodov", ["Podozrivé transakcie sa hlásia Finančnej polícii."]),
+        ("Vedenie evidencie", ["Záznamy sa uchovávajú 10 rokov."]),
+        ("Školenia", ["Povinné ročné školenie všetkých zamestnancov."]),
+        ("Záverečné ustanovenia", ["Platné od {date}. Prehodnotenie minimálne raz ročne."]),
+    ]
+    
+    SK_SECTIONS["auto"] = [
+        ("Úvodné ustanovenia", [
+            "Táto AML politika je základným dokumentom spoločnosti {company_name} v oblasti AML/FT.",
+            "Spoločnosť vykonáva činnosť predaja vozidiel a luxusného tovaru.",
+        ]),
+        ("Hotovostné obchody", [
+            "Podľa AML zákona platí zákaz prijímania hotovostných platieb nad 10 000 EUR.",
+            "Každá hotovostná transakcia nad 5 000 EUR podlieha povinnej identifikácii.",
+        ]),
+        ("Identifikácia kupujúceho", ["Pred predajom za hotovosť nad 5 000 EUR je povinná identifikácia."]),
+        ("Evidencia obchodov", ["Spoločnosť vedie evidenciu hotovostných obchodov nad 5 000 EUR."]),
+        ("Hlásenie podozrivých obchodov", ["Podozrivé obchody sa hlásia Finančnej polícii."]),
+        ("Školenia", ["Povinné ročné školenie zamestnancov."]),
+        ("Záverečné ustanovenia", ["Platné od {date}. Prehodnotenie minimálne raz ročne."]),
+    ]
+    
+    CZ_SECTIONS = {
+        "realestate": [
+            ("Úvodní ustanovení", [
+                "Tato AML politika (dále jen 'Politika') je základním dokumentem společnosti {company_name} v oblasti boje proti legalizaci výnosů z trestné činnosti a financování terorismu (AML/FT).",
+                "Společnost vykonává činnost realitního zprostředkování podle zákona č. 256/2013 Sb., o katastru nemovitostí.",
+                "Politika je vydána v souladu se zákonem č. 253/2008 Sb., o některých opatřeních proti legalizaci výnosů z trestné činnosti a financování terorismu, ve znění pozdějších předpisů (dále jen 'AML zákon').",
+            ]),
+            ("Rozsah působnosti", [
+                "Tato Politika se vztahuje na všech {employee_count} zaměstnanců Společnosti.",
+                "Vztahuje se na všechny obchodní vztahy a jednorázové transakce uskutečňované v rámci činnosti Společnosti.",
+                "Každý zaměstnanec je povinen se s touto Politikou seznámit a řídit se jí.",
+            ]),
+            ("Odpovědná osoba", [
+                "Odpovědnou osobou za AML/FT compliance je: {co_name}.",
+                "Kontakt: {co_contact}",
+                "Odpovědná osoba zajišťuje výkon identifikace a prověřování klientů, hodnocení rizik, hlášení podezřelých obchodů, školení zaměstnanců a aktualizaci této Politiky.",
+            ]),
+            ("Identifikace a verifikace klienta", [
+                "Společnost je povinna identifikovat každého klienta před vznikem obchodního vztahu nebo před provedením jednorázové transakce.",
+                "Identifikace fyzické osoby: občanský průkaz nebo cestovní pas.",
+                "Způsob identifikace: {id_procedure}.",
+            ]),
+            ("Konečný uživatel výhod (UBO)", [
+                "Společnost identifikuje konečného uživatele výhod každé právnické osoby, která je klientem.",
+                "Konečným uživatelem výhod je fyzická osoba s více než 25% podílem.",
+            ]),
+            ("Politicky exponované osoby (PEP)", [
+                "Zvýšená pozornost při obchodních vztazích s PEP osobami.",
+                "Vyžaduje se schválení vedením a zvýšené monitorování.",
+            ]),
+            ("Řízení rizik", [
+                "Úroveň rizika Společnosti: {risk_level}.",
+                "Riziko se posuzuje podle typu klienta, geografie, výše transakcí.",
+            ]),
+            ("Hlášení podezřelých obchodů (STR)", [
+                "Každý zaměstnanec je povinen bezodkladně informovat odpovědnou osobu o podezřelých transakcích.",
+                "Odpovědná osoba posoudí a podá hlášení Finančnímu úřadu.",
+            ]),
+            ("Školení zaměstnanců", [
+                "Pravidelné roční školení všech zaměstnanců v oblasti AML/FT.",
+                "Školení zahrnuje legislativu, rozpoznávání podezřelých obchodů, postupy identifikace.",
+            ]),
+            ("Archivace a ochrana údajů", [
+                "Záznamy se uchovávají 10 let od skončení obchodního vztahu.",
+                "Osobní údaje jsou zpracovávány v souladu s GDPR.",
+            ]),
+            ("Závěrečná ustanovení", [
+                "Tato Politika je platná od {date}.",
+                "Politika bude přehodnocena minimálně 1x ročně.",
+            ]),
+        ],
+        "accounting": [
+            ("Úvodní ustanovení", [
+                "Tato AML politika je základním dokumentem společnosti {company_name} v oblasti AML/FT.",
+                "Společnost vykonává činnost vedení účetnictví a daňového poradenství.",
+            ]),
+            ("Odpovědná osoba", [
+                "Odpovědnou osobou je: {co_name}. Kontakt: {co_contact}",
+            ]),
+            ("Identifikace a prověření klienta", [
+                "Každý klient musí být identifikován před převzetím zakázky.",
+                "Identifikace zahrnuje: ověření totožnosti, zjištění účelu obchodního vztahu.",
+            ]),
+            ("Konečný uživatel výhod", [
+                "Společnost identifikuje UBO u všech právnických osob, které jsou klienty.",
+            ]),
+            ("Politicky exponované osoby", [
+                "Společnost ověřuje, zda klient nebo jeho UBO není PEP.",
+            ]),
+            ("Hodnocení rizika klienta", [
+                "Každý klient je hodnocen podle rizikového profilu.",
+            ]),
+            ("Hlášení podezřelých obchodů", [
+                "Podezřelé transakce se hlásí Finančnímu úřadu.",
+            ]),
+            ("Vedení evidence", [
+                "Záznamy se uchovávají 10 let.",
+            ]),
+            ("Školení", [
+                "Povinné roční školení všech zaměstnanců.",
+            ]),
+            ("Závěrečná ustanovení", [
+                "Platné od {date}. Přehodnocení minimálně 1x ročně.",
+            ]),
+        ],
+        "auto": [
+            ("Úvodní ustanovení", [
+                "Tato AML politika je základním dokumentem společnosti {company_name} v oblasti AML/FT.",
+                "Společnost vykonává činnost prodeje vozidel a luxusního zboží.",
+            ]),
+            ("Hotovostní obchody", [
+                "Podle AML zákona platí zákaz hotovostních plateb nad 10 000 EUR.",
+                "Každá hotovostní transakce nad 5 000 EUR podléhá identifikaci kupujícího.",
+            ]),
+            ("Identifikace kupujícího", [
+                "Před prodejem za hotovost nad 5 000 EUR je povinná identifikace kupujícího.",
+            ]),
+            ("Evidence obchodů", [
+                "Společnost vede evidenci hotovostních obchodů nad 5 000 EUR.",
+            ]),
+            ("Hlášení podezřelých obchodů", [
+                "Podezřelé obchody se hlásí Finančnímu úřadu.",
+            ]),
+            ("Školení", [
+                "Povinné roční školení zaměstnanců.",
+            ]),
+            ("Závěrečná ustanovení", [
+                "Platné od {date}. Přehodnocení minimálně 1x ročně.",
+            ]),
+        ],
+    }
+    
     @classmethod
     def build_text(cls, answers: dict) -> str:
         jurisdiction = answers.get("jurisdiction", "SK")
         company_type = answers.get("business_type", "realestate")
-        sections = cls.SK_SECTIONS.get(company_type, cls.SK_SECTIONS["realestate"])
+        
+        if jurisdiction == "CZ":
+            sections = cls.CZ_SECTIONS.get(company_type, cls.CZ_SECTIONS["realestate"])
+        else:
+            sections = cls.SK_SECTIONS.get(company_type, cls.SK_SECTIONS["realestate"])
         
         fmt = {
-            "company_name": answers.get("company_name", "Spoločnosť"),
+            "company_name": answers.get("company_name", "Společnost" if jurisdiction == "CZ" else "Spoločnosť"),
             "ico": answers.get("ico", ""),
             "employee_count": answers.get("employee_count", "1"),
-            "co_name": answers.get("co_name", "Zodpovedná osoba"),
+            "co_name": answers.get("co_name", "Odpovědná osoba" if jurisdiction == "CZ" else "Zodpovedná osoba"),
             "co_contact": answers.get("co_contact", ""),
-            "id_procedure": {"in_person": "osobná", "electronic": "elektronická", "both": "osobná alebo elektronická"}.get(answers.get("id_procedure"), "osobná"),
-            "risk_level": {"low": "nízke", "medium": "stredné", "high": "vysoké"}.get(answers.get("risk_level"), "štandardné"),
+            "id_procedure": {"in_person": "osobní" if jurisdiction == "CZ" else "osobná", "electronic": "elektronická", "both": "osobní nebo elektronická" if jurisdiction == "CZ" else "osobná alebo elektronická"}.get(answers.get("id_procedure"), "osobní" if jurisdiction == "CZ" else "osobná"),
+            "risk_level": {"low": "nízké" if jurisdiction == "CZ" else "nízke", "medium": "střední" if jurisdiction == "CZ" else "stredné", "high": "vysoké"}.get(answers.get("risk_level"), "standardní" if jurisdiction == "CZ" else "štandardné"),
             "date": datetime.utcnow().strftime("%d. %m. %Y"),
         }
         
-        lines = [f"{'='*60}", f"AML POLITIKA", f"Spoločnosť: {fmt['company_name']}", f"IČO: {fmt['ico']}", f"Dátum: {fmt['date']}", f"{'='*60}\n"]
+        title_label = "AML POLITIKA" if jurisdiction == "SK" else "AML POLITIKA"
+        company_label = "Spoločnosť" if jurisdiction == "SK" else "Společnost"
+        
+        lines = [f"{'='*60}", f"{title_label}", f"{company_label}: {fmt['company_name']}", f"IČO: {fmt['ico']}", f"Dátum: {fmt['date']}", f"{'='*60}\n"]
         for title, paragraphs in sections:
             lines.append(f"{'─'*40}\n{title.upper()}\n{'─'*40}\n")
             for p in paragraphs:
                 lines.append(p.format(**fmt) + "\n")
-        lines.append(f"{'='*60}\n{fmt['company_name']}\n{fmt['date']}\n\n_________________________\n{fmt['co_name']}\nCompliance Officer\n{'='*60}")
+        lines.append(f"{'='*60}\n{'V ' + fmt['company_name'] if jurisdiction == 'SK' else 'V ' + fmt['company_name']}\n{fmt['date']}\n\n_________________________\n{fmt['co_name']}\nCompliance Officer\n{'='*60}")
         return "\n".join(lines)
     
     @classmethod
@@ -105,7 +260,11 @@ class PolicyTemplate:
         
         jurisdiction = answers.get("jurisdiction", "SK")
         company_type = answers.get("business_type", "realestate")
-        sections = cls.SK_SECTIONS.get(company_type, cls.SK_SECTIONS["realestate"])
+        
+        if jurisdiction == "CZ":
+            sections = cls.CZ_SECTIONS.get(company_type, cls.CZ_SECTIONS["realestate"])
+        else:
+            sections = cls.SK_SECTIONS.get(company_type, cls.SK_SECTIONS["realestate"])
         fmt = {"company_name": answers.get("company_name", ""), "employee_count": answers.get("employee_count", "1"),
             "co_name": answers.get("co_name", ""), "co_contact": answers.get("co_contact", ""),
             "id_procedure": "osobná", "risk_level": "štandardné", "date": datetime.utcnow().strftime("%d. %m. %Y")}

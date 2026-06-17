@@ -15,6 +15,7 @@ from app.api.cdd import router as cdd_router
 from app.api.ubo import router as ubo_router
 from app.api.str import router as str_router
 from app.api.training import router as training_router
+from app.api.billing import router as billing_router
 
 
 @asynccontextmanager
@@ -41,6 +42,7 @@ app.include_router(cdd_router)
 app.include_router(ubo_router)
 app.include_router(str_router)
 app.include_router(training_router)
+app.include_router(billing_router)
 
 
 @app.get("/api/health")
