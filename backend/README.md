@@ -2,6 +2,8 @@
 
 ## Rýchly štart
 
+### Lokálne (bez Dockeru)
+
 ```bash
 cd backend
 python3 -m venv .venv
@@ -9,7 +11,33 @@ python3 -m venv .venv
 .venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8222 --reload
 ```
 
-API beží na http://localhost:8222
+### Docker
+
+```bash
+cd backend
+docker build -t aml-guard-api .
+docker run -d --name aml-guard -p 8222:8222 aml-guard-api
+```
+
+### Docker Compose (odporúčané)
+
+```bash
+cd backend
+docker compose up -d
+```
+
+### Render (free tier)
+
+1. Forkni repo na GitHub
+2. Na [dashboard.render.com](https://dashboard.render.com) klikni **New + > Blueprint**
+3. Prepoj repo — Render automaticky nájde `backend/render.yaml`
+4. Nastav `SECRET_KEY` v Environment Variables (alebo nechaj auto-generate)
+5. Deploy jedným klikom → API na `https://aml-guard.onrender.com`
+
+> ⚠️ **Free tier limity:** SQLite dáta sa stratia pri každom reštarte (ephemeral filesystem).  
+> Pre ostrú prevádzku použi Render **Starter** ($7/mes) s PostgreSQL.
+
+### Demo účet
 
 ## API Endpointy
 

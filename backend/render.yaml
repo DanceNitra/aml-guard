@@ -1,0 +1,39 @@
+# ⚠️ Render Free Tier Limitations:
+# 1. Ephemeral filesystem — SQLite data is LOST on every restart
+# 2. For production: use PostgreSQL (paid tier) with DATABASE_URL
+# 3. Free tier: great for demo/testing, NOT for production data
+
+services:
+  - type: web
+    name: aml-guard-api
+    runtime: docker
+    repo: https://github.com/DanceNitra/aml-guard
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    region: frankfurt
+
+    envVars:
+      # Required
+      - key: APP_NAME
+        value: AML Guard API
+      - key: APP_VERSION
+        value: 1.0.0
+      - key: DEBUG
+        value: false
+      - key: DATABASE_URL
+        value: sqlite+aiosqlite:///./data/aml_guard.db
+      - key: SECRET_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: https://dancenitra.github.io,https://aml-guard.onrender.com
+
+      # Stripe — optional, leave empty for demo
+      - key: STRIPE_SECRET_KEY
+        value: ""
+      - key: STRIPE_WEBHOOK_SECRET
+        value: ""
+
+    # Health check
+    healthCheckPath: /api/health
+    autoDeploy: true

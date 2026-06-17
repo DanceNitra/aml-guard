@@ -1,0 +1,10 @@
+.venv
+__pycache__
+*.pyc
+.env
+aml_guard.db
+policies/
+scripts/
+.git
+.gitignore
+*.md

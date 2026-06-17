@@ -13,7 +13,7 @@ class Settings(BaseSettings):
 
     # Database — SQLite pre local dev, PostgreSQL pre produkciu
     # Pre PostgreSQL: postgresql+asyncpg://user:pass@host:5432/amlguard
-    DATABASE_URL: str = "sqlite+aiosqlite:///./aml_guard.db"
+    DATABASE_URL: str = "sqlite+aiosqlite:///./data/aml_guard.db"
 
     # Auth
     SECRET_KEY: str = "aml-guard-dev-secret-key-change-in-production-2026"

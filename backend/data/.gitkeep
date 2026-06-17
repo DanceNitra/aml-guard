@@ -1,0 +1,2 @@
+# SQLite database is stored here when running in Docker
+# .gitkeep ensures the directory is tracked by git

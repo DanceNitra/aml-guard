@@ -16,6 +16,12 @@ build/
 # Generated PDFs
 policies/
 
+# Data directory (SQLite in Docker)
+/data/
+!data/.gitkeep
+backend/data/
+!backend/data/.gitkeep
+
 # IDE
 .vscode/
 .idea/
